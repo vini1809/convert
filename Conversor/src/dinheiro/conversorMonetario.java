@@ -1,6 +1,7 @@
 package dinheiro;
 
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Toolkit;
@@ -14,7 +15,11 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 import java.awt.event.ActionListener;
+import java.net.URI;
 import java.awt.event.ActionEvent;
+import javax.swing.JInternalFrame;
+import java.awt.CardLayout;
+import javax.swing.ImageIcon;
 
 public class conversorMonetario extends JFrame {
 
@@ -37,11 +42,12 @@ public class conversorMonetario extends JFrame {
 	}
 
 	public conversorMonetario() {
+		getContentPane().setBackground(Color.BLACK);
 		setTitle("Conversor");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\exact\\OneDrive\\Imagens\\179938397_4579019755447020_4755125684073058466_n.jpg"));
 		setBackground(Color.BLACK);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 715, 463);
+		setBounds(100, 100, 651, 578);
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setEnabled(false);
@@ -51,7 +57,7 @@ public class conversorMonetario extends JFrame {
 		JButton btnNewButton = new JButton("Dinheiro");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dinheiroConverter obj = new dinheiroConverter();
+				ConvertCoins obj = new ConvertCoins();
 				obj.setVisible(true);
 			}
 		});
@@ -72,5 +78,22 @@ public class conversorMonetario extends JFrame {
 		txtBemVindoAo.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 14));
 		menuBar.add(txtBemVindoAo);
 		txtBemVindoAo.setColumns(20);
+		getContentPane().setLayout(null);
+		
+		JButton btnNewButton_2 = new JButton("");
+		btnNewButton_2.setIcon(new ImageIcon("C:\\Users\\exact\\Downloads\\T.jpg"));
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String[] args;
+		        try{
+		            URI link = new URI("https://github.com/vini1809");
+		            Desktop.getDesktop().browse(link);
+		        }catch(Exception erro){
+		            System.out.println(erro);
+		        }
+			}
+		});
+		btnNewButton_2.setBounds(49, 10, 544, 488);
+		getContentPane().add(btnNewButton_2);
 	}
 }
